@@ -2,7 +2,7 @@
 * @Author: Administrator
 * @Date:   2017-11-15 15:37:16
 * @Last Modified by:   Administrator
-* @Last Modified time: 2017-12-12 09:25:37
+* @Last Modified time: 2017-12-12 10:05:32
 */
 var webpack           = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
@@ -47,7 +47,12 @@ var config =  {
         loaders: [  
             {  
                 test: /\.css$/, loader:  ExtractTextPlugin.extract("style-loader","css-loader")  //样式的处理
+            },
+            {
+                test: /\.string$/, 
+                loader: 'html-loader'
             }
+
         ]  
     },
     resolve: {
