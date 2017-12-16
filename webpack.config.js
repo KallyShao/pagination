@@ -2,7 +2,7 @@
 * @Author: Administrator
 * @Date:   2017-11-15 15:37:16
 * @Last Modified by:   Administrator
-* @Last Modified time: 2017-12-12 10:05:32
+* @Last Modified time: 2017-12-16 10:05:26
 */
 var webpack           = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
@@ -57,7 +57,8 @@ var config =  {
     },
     resolve: {
         alias: {
-            node_modules: __dirname + '/node_modules'
+            node_modules: __dirname + '/node_modules',
+            util: __dirname + '/src/util'
         }
     } 
  };

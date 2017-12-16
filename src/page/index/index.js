@@ -2,44 +2,56 @@
  * @Author: Administrator
  * @Date:   2017-12-12 09:06:55
  * @Last Modified by:   Administrator
- * @Last Modified time: 2017-12-15 14:20:02
+ * @Last Modified time: 2017-12-16 14:16:09
  */
 
 require('./index.css');
 
+var _mm             = require('util/mm.js');
+var _product        = require('service/product-service.js');
+var Pagination      = require('util/pagination/index.js');
+var templateIndex   = require('./index.string');
 
-var pagination = require('pagination')
 
-var boostrapPaginator = new pagination.TemplatePaginator({
-	prelink:'/', current: 3, rowsPerPage: 200,
-	totalResult: 10020, slashSeparator: true,
-	template: function(result) {
-		var i, len, prelink;
-		var html = '<div><ul class="pagination">';
-		if(result.pageCount < 2) {
-			html += '</ul></div>';
-			return html;
+var page = {
+	data:{
+		listParam : {
+		    keyword         : _mm.getUrlParam('keyword')    || '',
+		    categoryId      : _mm.getUrlParam('categoryId') || '',
+		    orderBy         : _mm.getUrlParam('orderBy')    || 'default',
+		    pageNum         : _mm.getUrlParam('pageNum')    || 1,
+		    pageSize        : _mm.getUrlParam('pageSize')   || 20
 		}
-		prelink = this.preparePreLink(result.prelink);
-		if(result.previous) {
-			html += '<li><a href="' + prelink + result.previous + '">' + this.options.translator('PREVIOUS') + '</a></li>';
-		}
-		if(result.range.length) {
-			for( i = 0, len = result.range.length; i < len; i++) {
-				if(result.range[i] === result.current) {
-					html += '<li class="active"><a href="' + prelink + result.range[i] + '">' + result.range[i] + '</a></li>';
-				} else {
-					html += '<li><a href="' + prelink + result.range[i] + '">' + result.range[i] + '</a></li>';
-				}
-			}
-		}
-		if(result.next) {
-			html += '<li><a href="' + prelink + result.next + '" class="paginator-next">' + this.options.translator('NEXT') + '</a></li>';
-		}
-		html += '</ul></div>';
-		return html;
+	},
+	loadList: function(){
+		var _this       = this,
+		    listHtml    = '',
+		    listParam   = this.data.listParam;
+		    // $pListCon   = $('.p-list-con');
+		_product.getProductList(listParam, function(res){
+			_this.loadPagination({
+				hasPreviousPage : res.hasPreviousPage,
+				prePage         : res.prePage,
+				hasNextPage     : res.hasNextPage,
+				nextPage        : res.nextPage,
+				pageNum         : res.pageNum,
+				pages           : res.pages
+			})
+
+		}, function(errMsg){
+			_mm.errorTips(errMsg);
+		})
+		
+	},
+	loadPagination : function(pageInfo){
+	   this.pagination ? '' : (this.pagination = new Pagination());
+	   this.pagination.render({
+
+	   });
 	}
-});
-console.log(boostrapPaginator.render());
+}
 
-$('#data-container').html(boostrapPaginator.render());
+$(function(){
+	page.init();
+})
+

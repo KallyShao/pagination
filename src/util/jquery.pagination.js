@@ -7,7 +7,8 @@
  * @调用方法
  * $(selector).pagination();
  */
-;(function (factory) {
+;(
+	function (factory) {
     if (typeof define === "function" && (define.amd || define.cmd) && !jQuery) {
         // AMD或CMD
         define([ "jquery" ],factory);
@@ -28,7 +29,9 @@
         //Browser globals
         factory(jQuery);
     }
-}(function ($) {
+}
+
+(function ($) {
 
 	//配置参数
 	var defaults = {
