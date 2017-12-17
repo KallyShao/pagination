@@ -2,13 +2,15 @@
 * @Author: Administrator
 * @Date:   2017-12-16 10:07:47
 * @Last Modified by:   Administrator
-* @Last Modified time: 2017-12-16 10:08:14
+* @Last Modified time: 2017-12-16 20:15:55
 */
 
 'use strict';
+var Hogan = require('hogan.js');
 var conf = {
     serverHost : ''
 };
+
 var _mm = {
     // 网络请求
     request : function(param){
