@@ -2,7 +2,7 @@
  * @Author: Administrator
  * @Date:   2017-12-12 09:06:55
  * @Last Modified by:   Administrator
- * @Last Modified time: 2017-12-17 21:44:55
+ * @Last Modified time: 2017-12-18 09:32:47
  */
 
 require('./index.css');
@@ -90,9 +90,10 @@ var page = {
 	   this.pagination.render($.extend({}, pageInfo, {
 	   		container: $('.pagination'),
 	   		onSelectPage: function(pageNum){
-	   			//_this.data.pageParam.pageNum = pageNum;
 	   			//_this.loadList();
 	   			_this.data.pageParam.pageNum = pageNum;
+
+	   			//判断是否有下一页，并计算下一页的pageNum
 	   			if(_this.data.pageParam.pages > pageNum){
 	   				_this.data.pageParam.hasNextPage = true;
 	   				_this.data.pageParam.nextPage = pageNum + 1;
@@ -100,6 +101,7 @@ var page = {
 	   				_this.data.pageParam.hasNextPage = false;
 	   			}
 
+	   			//判断是否有前一页，并计算前一页的pageNum
 	   			if(pageNum <= 1){
 	   				_this.data.pageParam.hasPreviousPage = false;
 	   			}else{
@@ -109,10 +111,8 @@ var page = {
 	   			
 				var resList;
 				if(_this.data.pageParam.pages > pageNum){
-					// resList = _this.data.productList[pageNum * 10: pageNum * 10 + 10];
 					resList = _this.data.productList.slice((pageNum -1) * _this.data.pageSize, pageNum * _this.data.pageSize);
 				}else{
-					// resList = _this.data.productList[pageNum * 10: ]
 					resList = _this.data.productList.slice((pageNum -1) * _this.data.pageSize);
 				}
 
