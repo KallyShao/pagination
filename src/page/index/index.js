@@ -2,7 +2,7 @@
  * @Author: Administrator
  * @Date:   2017-12-12 09:06:55
  * @Last Modified by:   Administrator
- * @Last Modified time: 2017-12-18 09:32:47
+ * @Last Modified time: 2017-12-20 15:29:21
  */
 
 require('./index.css');
@@ -38,8 +38,26 @@ var page = {
 		}
 	},
 	init: function(){
+
+// let name = 'kally';
+// let age = 18;
+// let a = {name, age};
+// console.log(a);
+
+let a = {
+	name: 'kally',
+	age: 18
+};
+let {name, type} = a;
+console.log(name, type);
+
+
+
+
+
+
+
 		this.onLoad();
-		// this.bindEvent();
 	},
 	onLoad: function(){
 		this.loadList();
@@ -47,18 +65,19 @@ var page = {
 	loadList: function(){
 		var _this       = this,
 		    listHtml    = '',
+		    listLen		=  0,
+		    // resList		= null,
 		    listParam   = this.data.listParam,
 		    pageParam   = this.data.pageParam;
 		$pListCon   = $('.p-list-con');
 		$pListCon.html('<div class="loading"></div>');
 
 		_product.getProductList(listParam, function(res){
-			//console.log(res.list);
 			_this.data.productList = res.list;
-			// console.log(_this.data.productList);
-			var listLen = res.list.length;
+			
+			listLen = res.list.length;
 			_this.data.pageParam.pages = Math.ceil(listLen / _this.data.pageSize);
-			console.log(_this.data.pageParam.pages);
+			// console.log(_this.data.pageParam.pages);
 			if(_this.data.pageParam.pages > 1){
 				_this.data.pageParam.hasNextPage = true;
 			}
@@ -76,12 +95,11 @@ var page = {
             });
             $pListCon.html(listHtml);
 
-			_this.loadPagination(pageParam);	//这里你的pageParam就是形参pageInfo
+			_this.loadPagination(pageParam);	//这里的pageParam就是形参pageInfo
 
 		}, function(errMsg){
 			_cf.errorTips(errMsg);
 		})
-		
 	},
 	loadPagination : function(pageInfo){
 		var _this = this;
@@ -93,6 +111,7 @@ var page = {
 	   			//_this.loadList();
 	   			_this.data.pageParam.pageNum = pageNum;
 
+	   			console.log(pageNum);
 	   			//判断是否有下一页，并计算下一页的pageNum
 	   			if(_this.data.pageParam.pages > pageNum){
 	   				_this.data.pageParam.hasNextPage = true;

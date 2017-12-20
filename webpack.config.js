@@ -2,7 +2,7 @@
 * @Author: Administrator
 * @Date:   2017-11-15 15:37:16
 * @Last Modified by:   Administrator
-* @Last Modified time: 2017-12-16 19:45:35
+* @Last Modified time: 2017-12-20 09:24:45
 */
 var webpack           = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
@@ -52,7 +52,6 @@ var config =  {
                 test: /\.string$/, 
                 loader: 'html-loader'
             }
-
         ]  
     },
     resolve: {
