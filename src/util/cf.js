@@ -2,7 +2,7 @@
 * @Author: Administrator
 * @Date:   2017-12-16 10:07:47
 * @Last Modified by:   Administrator
-* @Last Modified time: 2017-12-16 20:15:55
+* @Last Modified time: 2017-12-27 16:00:36
 */
 
 'use strict';
@@ -34,7 +34,9 @@ var _mm = {
                     typeof param.error === 'function' && param.error(res.msg);
                 }
             },
-            error       : function(err){
+            error       : function(err){    
+            //ajax error()函数的第一个参数为jqXHR对象，这里只传入了一个参数，则就是第一个，
+            //这个参数的返回值有一个字段就是statusText， 是对错误状态的描述，与status如 404等相对应
                 typeof param.error === 'function' && param.error(err.statusText);
             }
         });

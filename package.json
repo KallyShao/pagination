@@ -19,8 +19,10 @@
     "html-loader": "^0.5.1"
   },
   "dependencies": {
+    "hogan": "^1.0.2",
+    "hogan.js": "^3.0.2",
     "pagination": "^0.4.4",
     "paginationjs": "^2.1.0",
-    "hogan": "^1.0.2"
+    "simditor": "^2.3.6"
   }
 }
