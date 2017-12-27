@@ -2,7 +2,7 @@
  * @Author: Administrator
  * @Date:   2017-12-12 09:06:55
  * @Last Modified by:   Administrator
- * @Last Modified time: 2017-12-20 15:29:21
+ * @Last Modified time: 2017-12-20 18:42:56
  */
 
 require('./index.css');
@@ -39,17 +39,8 @@ var page = {
 	},
 	init: function(){
 
-// let name = 'kally';
-// let age = 18;
-// let a = {name, age};
-// console.log(a);
 
-let a = {
-	name: 'kally',
-	age: 18
-};
-let {name, type} = a;
-console.log(name, type);
+
 
 
 
