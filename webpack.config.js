@@ -2,7 +2,7 @@
 * @Author: Administrator
 * @Date:   2017-11-15 15:37:16
 * @Last Modified by:   Administrator
-* @Last Modified time: 2018-01-05 13:02:29
+* @Last Modified time: 2018-01-05 17:06:35
 */
 var webpack           = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
@@ -28,7 +28,8 @@ var config =  {
      entry: {
         'common': ['./src/page/common/index.js'],
         'index': ['./src/page/index/index.js'],
-        'fileupload': ['./src/page/fileupload/index.js']
+        'fileupload': ['./src/page/fileupload/index.js'],
+        'fileupload-FormData': ['./src/page/fileupload-FormData/index.js'],
      },
      output: {
          path: './dist',    //存放文件的路径，最终生成文件的目录
@@ -43,7 +44,8 @@ var config =  {
          new ExtractTextPlugin("css/[name].css"),
         //处理html模板
         new HtmlWebpackPlugin(getHtmlPlugin('index', '首页')),
-        new HtmlWebpackPlugin(getHtmlPlugin('fileupload', '文件上传测试'))
+        new HtmlWebpackPlugin(getHtmlPlugin('fileupload', '文件上传测试')),
+        new HtmlWebpackPlugin(getHtmlPlugin('fileupload-FormData', '多文件上传测试'))
      ],
     module: {
         loaders: [  
