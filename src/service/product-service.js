@@ -6,8 +6,7 @@ var _product = {
     // 获取商品列表
     getProductList : function(listParam, resolve, reject){
         _cf.request({
-            url     : _cf.getServerUrl('/product/list.do'),
-            // url     : _cf.getServerUrl('/product/list.do'),
+            url     : _cf.getServerUrl('/cfmall/index.php/Home/SMList/SMList'),
             // method  : 'POST',
             data    : listParam,
             success : resolve,

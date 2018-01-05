@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+	<!-- <img id="upload" alt="" style="width: 200px; height: 200px"  src="">   -->
+
+	<button id="upload">点击</button>
+	<button id="test">点击改变input</button>
+	<input type="checkbox" id="inp">
+	<div class="test1">hello</div>
+	  
+	<!-- 隐藏file标签 -->  
+	<input id="fileToUpload" style="display: none" type="file" name="img_id[]"><br/>
+
+    <script type="text/javascript" src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js
+"></script>
+	<!-- <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>   -->
+	<script>
+		$('#test').click(function(){
+			if($('#inp').prop('checked')){
+				$('#inp').prop('checked', false);
+			}else{
+				$('#inp').prop('checked', true);
+			}
+		})
+		$('#inp').change(function(){
+			console.log(909);
+			$('.test').hide();
+		})
+	</script>
+</body>
+</html>
