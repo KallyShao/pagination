@@ -2,7 +2,7 @@
  * @Author: Administrator
  * @Date:   2017-12-12 09:06:55
  * @Last Modified by:   Administrator
- * @Last Modified time: 2017-12-20 18:42:56
+ * @Last Modified time: 2018-01-18 18:40:02
  */
 
 require('./index.css');
@@ -38,16 +38,6 @@ var page = {
 		}
 	},
 	init: function(){
-
-
-
-
-
-
-
-
-
-
 		this.onLoad();
 	},
 	onLoad: function(){

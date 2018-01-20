@@ -2,7 +2,7 @@
 * @Author: Administrator
 * @Date:   2017-11-15 15:37:16
 * @Last Modified by:   Administrator
-* @Last Modified time: 2017-12-20 09:24:45
+* @Last Modified time: 2018-01-18 18:42:53
 */
 var webpack           = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
@@ -27,7 +27,8 @@ var getHtmlPlugin = function(name, title){
 var config =  {
      entry: {
         'common': ['./src/page/common/index.js'],
-        'index': ['./src/page/index/index.js']
+        'index': ['./src/page/index/index.js'],
+        'pagination': ['./src/page/pagination/index.js']
      },
      output: {
          path: './dist',    //存放文件的路径，最终生成文件的目录
@@ -41,7 +42,8 @@ var config =  {
          //打包css到单独文件
          new ExtractTextPlugin("css/[name].css"),
         //处理html模板
-        new HtmlWebpackPlugin(getHtmlPlugin('index', '首页'))
+        new HtmlWebpackPlugin(getHtmlPlugin('index', '首页')),
+        new HtmlWebpackPlugin(getHtmlPlugin('pagination', '分页插件测试'))
      ],
     module: {
         loaders: [  

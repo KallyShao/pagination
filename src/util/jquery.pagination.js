@@ -7,7 +7,7 @@
  * @调用方法
  * $(selector).pagination();
  */
-;(
+;(	
 	function (factory) {
     if (typeof define === "function" && (define.amd || define.cmd) && !jQuery) {
         // AMD或CMD
@@ -30,6 +30,7 @@
         factory(jQuery);
     }
 }
+
 
 (function ($) {
 

@@ -2,11 +2,11 @@
 * @Author: Administrator
 * @Date:   2017-12-16 10:07:47
 * @Last Modified by:   Administrator
-* @Last Modified time: 2017-12-20 09:25:22
+* @Last Modified time: 2018-01-18 18:45:51
 */
 
 'use strict';
-var Hogan = require('hogan');
+var Hogan = require('hogan.js');
 var conf = {
     serverHost : ''
 };
